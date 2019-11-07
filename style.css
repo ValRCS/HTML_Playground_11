@@ -1,6 +1,6 @@
 h1 {
     color: green;
-    background-color: rgb(156, 45, 45);
+    background-color: silver;
 }
 
 p {
@@ -11,4 +11,11 @@ p {
 .green-text {
     color: greenyellow;
 }
+
+.thick-green-border {
+    border-color: green;
+    border-width: 10px;
+    border-style: solid;
+
+  }
 
