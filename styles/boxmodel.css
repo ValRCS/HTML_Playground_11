@@ -1,8 +1,16 @@
 span {
-    background-color: silver;
+    background-color: hsl(315, 79%, 28%);
 }
 
 .span-2 {
     display: inline-block;
     width: 150px;
+}
+
+.my-class-002 {
+    font-weight: bold;
+}
+
+.par-002 {
+    text-decoration: underline;
 }
