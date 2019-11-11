@@ -1,0 +1,42 @@
+body {
+    /* background: url('../img/tile.png') no-repeat; */
+    /* background-image: url('../img/tile.png'), linear-gradient(#eb01a5, #d13531); W3C */
+    
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../tile.png);
+    background-repeat: no-repeat;
+}
+
+.gradient-class {
+    background: linear-gradient(35deg, yellow, red);
+}
+
+header {
+    background-color: hsl(180, 90%, 35%);
+    color: #FFFFFF;
+    width: 70%;
+    margin: auto;
+  }
+
+  nav {
+        background-color: hsl(180, 80%, 25%);
+  }
+
+  h1 {
+    text-indent: 10px;
+    padding-top: 10px;
+  }
+
+  nav ul {
+    margin: 0px;
+    padding: 5px 0px 5px 30px;
+  }
+
+  nav li {
+    display: inline;
+    margin-right: 20px;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
