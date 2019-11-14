@@ -9,3 +9,13 @@
     height: 100px;
     background: orange;
 }
+
+.child07 {
+    display: none;
+}
+
+@media screen and (min-width: 576px) {
+    .child07 {
+        display: block;
+    }
+}
