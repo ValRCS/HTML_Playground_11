@@ -1,0 +1,48 @@
+@import 'templates/colors';
+@import "templates/_mixins.scss";
+
+body {
+    background-color: silver;
+
+    main {
+        background-color: orange;
+
+        .main-container {
+            height: 90vh;
+            color: $primary-color;
+        }
+    }
+
+    footer {
+        color: $secondary-color;
+    }
+}
+
+.blog-post {
+    h1 {
+      text-align: center;
+      color: blue;
+    }
+    p {
+      font-size: 3em;
+
+      .my-special-text {
+          font-weight: 700;
+      }
+    }
+
+    .my-button {
+        @include border-radius(10px);
+        border: solid 5px $secondary-color;
+    }
+  }
+
+.error {
+    border: 1px #f00;
+    background-color: #fdd;
+
+    &--serious {
+        @extend .error;
+        border-width: 3px;
+    }
+}

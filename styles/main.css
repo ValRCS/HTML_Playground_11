@@ -1,0 +1,44 @@
+body {
+  background-color: silver;
+}
+
+body main {
+  background-color: orange;
+}
+
+body main .main-container {
+  height: 90vh;
+  color: #c21e1e;
+}
+
+body footer {
+  color: #2eb4b4;
+}
+
+.blog-post h1 {
+  text-align: center;
+  color: blue;
+}
+
+.blog-post p {
+  font-size: 3em;
+}
+
+.blog-post p .my-special-text {
+  font-weight: 700;
+}
+
+.blog-post .my-button {
+  border-radius: 10px;
+  border: solid 5px #2eb4b4;
+}
+
+.error, .error--serious {
+  border: 1px #f00;
+  background-color: #fdd;
+}
+
+.error--serious {
+  border-width: 3px;
+}
+/*# sourceMappingURL=main.css.map */
