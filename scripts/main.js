@@ -28,4 +28,15 @@ myText += "Second Line <h1>My Headline</h1>";
 myText += "more text on second line";
 console.log(myText);
 
+var someAdjective = "fascinating";
+var myStr = "Learning to code is ";
+myStr += someAdjective;
+console.log(myStr);
+
+var myPar = document.querySelector('#myResults');
+myPar.innerText = "<em>" + myStr + "</em>";
+
+var myFancyPar = document.querySelector('#myFancyResults');
+myFancyPar.innerHTML = "<em>" + myStr + "</em>";
+
 
