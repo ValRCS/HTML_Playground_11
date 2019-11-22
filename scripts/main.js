@@ -1,5 +1,14 @@
 'use strict';
 
+const magic = () => new Date();
+
+const add2 = (a, b = 3) => {
+    console.log("Working working");
+    return a + b;
+};
+
+
+
 function main() {
     console.log("Running my JS");
     var a = 55;
@@ -71,13 +80,13 @@ function add(a, b) {
 }
 
 // main();
-let myVar = checkLocal();
-console.log(typeof myVar);
-// console.log(myLocal);
+// let myVar = checkLocal();
+// console.log(typeof myVar);
+// // console.log(myLocal);
 
-console.log(add(6, 7));
-console.log(add(-6, 7));
-console.log(add(6, "Valdis"));
+// console.log(add(6, 7));
+// console.log(add(-6, 7));
+// console.log(add(6, "Valdis"));
 
 
 
