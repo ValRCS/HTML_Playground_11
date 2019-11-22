@@ -1,93 +1,49 @@
-'use strict';
-
-const magic = () => new Date();
-
-const add2 = (a, b = 3) => {
-    console.log("Working working");
-    return a + b;
-};
-
-
+console.log('Running main.js');
 
 function main() {
-    console.log("Running my JS");
-    var a = 55;
-    var b = 20;
-    console.log(a);
+    const app = document.querySelector('#app');
 
-    a = 300 + b + a;
-    console.log(a);
-    a++;
-    console.log(a);
-    a++;
-    console.log(a);
-    a++;
+    //add a new div inside app element
+    const newDiv = document.createElement('div');
+    newDiv.innerText = "I am a new div";
+    app.appendChild(newDiv);
 
-    var myStr = "Valdis said \"Hello\"";
-    var mySecondStr = 'Valdis said "Hello"';
-    var myThirdStr = `I can use "quotes" and also 'single quotes' and no problem`;
-    var myFourthStr = `I can even include a variable ${a} in my text`;
-    console.log(myStr);
-    console.log(mySecondStr);
-    console.log(myThirdStr);
-    console.log(myFourthStr);
+    app.appendChild(document.createElement('p'));
 
-    var myText = "";
-    myText += "First Line\n";
-    //do more stuff
-    myText += "Second Line <h1>My Headline</h1>";
-    myText += "more text on second line";
-    console.log(myText);
+    const mypar = app.querySelector('p');
+    mypar.innerText = "Lorem Ipsum";
+    // mypar.style.backgroundColor = "red";
+    mypar.classList.add("warning-text");
+    mypar.classList.add("bold-text");
+    mypar.id = "hopefully-unique";
 
-    var someAdjective = "fascinating";
-    var myStr = "Learning to code is ";
-    myStr += someAdjective;
-    console.log(myStr);
+    addElement(app, "mycoolid", "p", "Lorems");
+    addElement(app, "mycoolid2", "p", "Lorems", ["warning-text"]);
+    addElement(app, "mycoolid2", "p", "Lorems", ["warning-text", 'bold-text']);
 
-    var myFancyPar = document.querySelector('#myFancyResults');
-    myFancyPar.innerHTML = "<em>" + myStr + "</em>";
+    for (let i = 1; i < 10; i++) {
+        const myDiv = addElement(app, "myid" + i, "div", "My text " + i);
+        addElemObj(myDiv, { id: "ob" + i, tag: "p", innerText: "Text" + i })
+    }
 
-    var myNoun = "dog";
-    var myAdjective = "big";
-    var myVerb = "ran";
-    var myAdverb = "quickly";
-
-    var wordBlanks = "My " + myAdjective + " " + myNoun +
-        " " + myVerb + " " + myAdverb + ".";
-
-    console.log(wordBlanks);
-
-    var myPar = document.querySelector('#myResults');
-    myPar.innerText = wordBlanks;
 }
 
-// function badGlobal() {
-// use 'use strict' to catch these kind of erros
-//     globalScopeVar = 55;
-// }
-
-function checkLocal() {
-    var myLocal = 55;
-    console.log(myLocal);
+function addElement(parent, id, tag = 'p', content = null, classList = null) {
+    const elem = document.createElement(tag);
+    elem.id = id;
+    if (content) elem.innerText = content;
+    if (classList) elem.classList.add(...classList);
+    parent.appendChild(elem);
+    return elem;
 }
 
-function add(a, b) {
-    let result = 0;
-    //Do more stuff with a and b here
-    result += a;
-    result += b;
-    return result;
+function addElemObj(parent, obj) {
+    const elem = document.createElement(obj.tag);
+    elem.id = obj.id;
+    elem.innerText = obj.innerText;
+    parent.appendChild(elem);
+    return elem;
 }
 
-// main();
-// let myVar = checkLocal();
-// console.log(typeof myVar);
-// // console.log(myLocal);
 
-// console.log(add(6, 7));
-// console.log(add(-6, 7));
-// console.log(add(6, "Valdis"));
-
-
-
-
+main();
