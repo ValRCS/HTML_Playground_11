@@ -32,6 +32,7 @@ function main() {
         app.appendChild(el);
     }
 
+    addHandlers();
 }
 
 function addElement(parent, id, tag = 'p', content = null, classList = null) {
@@ -56,23 +57,43 @@ function onClick() {
     //TODO pretty much anything
 }
 
+function addHandlers() {
+    // const but2 = document.getElementById('button2');
+    const but2 = document.querySelector('#button2');
+    // but2.onclick = onClick;
+    but2.onmousedown = function () {
+        console.log("Mouse down!");
+    }
 
-// const but2 = document.getElementById('button2');
-const but2 = document.querySelector('#button2');
-// but2.onclick = onClick;
-but2.onmousedown = function () {
-    console.log("Mouse down!");
+    but2.onmouseup = () => {
+        console.log("Mouse up!");
+    }
+
+    // # adding multiple handlers for same event
+    const but3 = document.getElementById('button3');
+    but3.addEventListener('click', () => { console.log("Clicked 3"); });
+    but3.addEventListener('click', () => { console.log("Really clicked me!"); });
+    but3.onclick = () => { console.log("This might get overwritten!"); };
+    but3.ondblclick = () => { console.log("Double!"); };
+
+    // we grab an array of all buttons in our page
+    const myButtons = document.getElementsByTagName('button');
+    for (let i = 0; i < myButtons.length; i++) {
+        myButtons[i].onclick = () => { console.log('Generic Click'); };
+        myButtons[i].addEventListener('click', () => { console.log('Generic AddEvent Click'); });
+
+    }
+
+    //myButtons is an HTMLcollection not a regular array so forEach will not work
+    // myButtons.forEach((element) => {
+    //     element.addEventListener('click', () => { console.log('For Each listener'); });
+    // });
+
+    for (let element of myButtons) {
+        element.addEventListener('click', () => { console.log('For Each listener'); });
+    }
 }
 
-but2.onmouseup = () => {
-    console.log("Mouse up!");
-}
 
-// # adding multiple handlers for same event
-const but3 = document.getElementById('button3');
-but3.addEventListener('click', () => { console.log("Clicked 3"); });
-but3.addEventListener('click', () => { console.log("Really clicked me!"); });
-
-but3.ondblclick = () => { console.log("Double!"); };
 
 main();
