@@ -56,4 +56,16 @@ function onClick() {
     //TODO pretty much anything
 }
 
+
+// const but2 = document.getElementById('button2');
+const but2 = document.querySelector('#button2');
+// but2.onclick = onClick;
+but2.onmousedown = function () {
+    console.log("Mouse down!");
+}
+
+but2.onmouseup = () => {
+    console.log("Mouse up!");
+}
+
 main();
