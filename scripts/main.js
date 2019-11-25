@@ -1,6 +1,8 @@
 console.log('Running main.js');
+window.onload = main;
 
 function main() {
+    console.log("Running Main");
     const app = document.querySelector('#app');
 
     //add a new div inside app element
@@ -91,9 +93,15 @@ function addHandlers() {
 
     for (let element of myButtons) {
         element.addEventListener('click', () => { console.log('For Each listener'); });
+        //do more work on each element here
+        //element is just a name we made up, could be button or el ,etc
     }
+
+
+
+
 }
 
 
 
-main();
+// main();
