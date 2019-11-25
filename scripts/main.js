@@ -68,4 +68,11 @@ but2.onmouseup = () => {
     console.log("Mouse up!");
 }
 
+// # adding multiple handlers for same event
+const but3 = document.getElementById('button3');
+but3.addEventListener('click', () => { console.log("Clicked 3"); });
+but3.addEventListener('click', () => { console.log("Really clicked me!"); });
+
+but3.ondblclick = () => { console.log("Double!"); };
+
 main();
