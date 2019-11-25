@@ -17,13 +17,19 @@ function main() {
     mypar.classList.add("bold-text");
     mypar.id = "hopefully-unique";
 
-    addElement(app, "mycoolid", "p", "Lorems");
-    addElement(app, "mycoolid2", "p", "Lorems", ["warning-text"]);
-    addElement(app, "mycoolid2", "p", "Lorems", ["warning-text", 'bold-text']);
+    // addElement(app, "mycoolid", "p", "Lorems");
+    // addElement(app, "mycoolid2", "p", "Lorems", ["warning-text"]);
+    // addElement(app, "mycoolid2", "p", "Lorems", ["warning-text", 'bold-text']);
 
-    for (let i = 1; i < 10; i++) {
-        const myDiv = addElement(app, "myid" + i, "div", "My text " + i);
-        addElemObj(myDiv, { id: "ob" + i, tag: "p", innerText: "Text" + i })
+    // for (let i = 1; i < 10; i++) {
+    //     const myDiv = addElement(app, "myid" + i, "div", "My text " + i);
+    //     addElemObj(myDiv, { id: "ob" + i, tag: "p", innerText: "Text" + i })
+    // }
+
+    for (let i = 0; i < 5; i++) {
+        const el = document.createElement('button');
+        el.innerText = "Button" + (i + 1);
+        app.appendChild(el);
     }
 
 }
@@ -45,5 +51,9 @@ function addElemObj(parent, obj) {
     return elem;
 }
 
+function onClick() {
+    console.log("You clicked me!");
+    //TODO pretty much anything
+}
 
 main();
