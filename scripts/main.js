@@ -31,6 +31,8 @@ function main() {
     for (let i = 0; i < 5; i++) {
         const el = document.createElement('button');
         el.innerText = "Button" + (i + 1);
+        el.id = 'b' + i;
+        el.title = "My button " + i;
         app.appendChild(el);
     }
 
@@ -92,7 +94,10 @@ function addHandlers() {
     // });
 
     for (let element of myButtons) {
-        element.addEventListener('click', () => { console.log('For Each listener'); });
+        element.addEventListener('click', (event) => {
+            console.log('Pressed button:' + event.target.id);
+            console.log('Element text:' + event.target.innerText);
+        });
         //do more work on each element here
         //element is just a name we made up, could be button or el ,etc
     }
