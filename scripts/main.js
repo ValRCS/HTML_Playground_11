@@ -97,9 +97,12 @@ function addHandlers() {
         //element is just a name we made up, could be button or el ,etc
     }
 
-
-
-
+    //so window refers to whole browser, and body to just the document
+    window.onscroll = () => { console.log("Scrolling!"); };
+    // document.body.onscroll = () => { console.log("Scrolling!"); };
+    // document.body.onwheel = () => { console.log("Mouse wheel turning!"); };
+    // https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onwheel#Examples
+    window.onwheel = (event) => { console.log("Mouse wheel turning! DeltaY:" + event.deltaY); };
 }
 
 
