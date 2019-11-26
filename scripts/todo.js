@@ -61,16 +61,39 @@ document.getElementById('delete-all').onclick = () => {
     destroyAllChildren(todoList);
 };
 
+function init() {
+    console.log('Init');
+    //TODO add init code later
+}
+
+function addHandlers() {
+    document.getElementById('show-active').onclick = (event) => {
+        if (event.target.value === "all") {
+            console.log("Showing Only Active Jobs");
+            const finishedJobs = todoList.querySelectorAll('span.finished');
+            for (let job of finishedJobs) {
+                job.parentNode.style.display = "none";
+            }
+            event.target.innerText = "Show All";
+            event.target.value = "finished";
+        } else {
+            console.log("Showing All Jobs");
+            const finishedJobs = todoList.querySelectorAll('span.finished');
+            for (let job of finishedJobs) {
+                job.parentNode.style.display = "block";
+            }
+            event.target.innerText = "Show Only Unfinished Jobs";
+            event.target.value = "all";
+        }
+
+    }
+}
+
 function main() {
     console.log("Running main");
-    console.log("Destroying all children of TODO list");
-    destroyAllChildren(todoList);
+    init();
+    addHandlers();
 }
+
 window.onload = main;
 
-// const container = document.querySelector('.container');
-// console.log("container tag" + container.tagName);
-// const children = container.childNodes;
-// for (let child of children) {
-//     console.log("My element has tag:" + child.tagName);
-// }
