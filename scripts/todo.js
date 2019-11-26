@@ -24,11 +24,24 @@ addBtn.onclick = () => {
         const grandParent = event.target.parentNode.parentNode;
         grandParent.removeChild(parent);
 
-        // Alternative get parent id and let grandparent todoList destroy parent
-        // todoList.removeChild(document.getElementById('job-' + event.target.value));
+    }
+
+    const jobDone = document.createElement('input');
+    jobDone.setAttribute("type", "checkbox");
+    jobDone.onchange = (ev) => {
+        console.log("Changed me:" + ev.target.checked);
+        if (ev.target.checked) {
+            ev.target.parentNode.querySelector('span').classList.add('finished');
+            //if we want the first child then we can use below
+            // ev.target.parentNode.childNodes[0].classList.add('finished');
+        } else {
+            ev.target.parentNode.querySelector('span').classList.remove('finished');
+        }
+
     }
 
 
+    jobCont.appendChild(jobDone);
 
 
     jobId++;
