@@ -54,3 +54,13 @@ myinp2.oninput = inputHandler2;
 myinp1.onchange = (event) => {
     console.log("onchange fired! New value is:" + event.target.value);
 };
+
+function main() {
+
+    //myinit();
+    //setupHandlers();
+
+    updateResult();
+}
+
+main();
