@@ -33,11 +33,22 @@ function updateResult() {
     resultElement.innerText = val1 + val2;
 }
 
-
-myinp1.oninput = (event) => {
+//inputHandler and inputHanlder2 do the same thing!
+const inputHandler = (event) => {
     console.log("oninput fired! New value is:" + event.target.value);
     updateResult();
-};
+}
+
+//old way of writing, works just as well
+function inputHandler2(event) {
+    console.log("oninput fired! New value is:" + event.target.value);
+    updateResult();
+}
+
+myinp1.oninput = inputHandler2;
+myinp2.oninput = inputHandler2;
+
+
 
 //on change fires less often than oninput , only when value is finalized(as by pressing enter)
 myinp1.onchange = (event) => {
