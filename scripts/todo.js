@@ -2,15 +2,24 @@ console.log("Started TODO app!");
 
 const addBtn = document.getElementById('todo-add');
 const todoList = document.getElementById('todo-list');
+const resourceUrl = 'https://jsonplaceholder.typicode.com/todos';
+
 let jobId = 0;
+
+
 
 addBtn.onclick = () => {
     console.log("You Clicked ADD");
+    //so I pass an object with a single property desc and the value of our input
+    addJob({ title: document.getElementById('todo-input').value });
+}
+
+function addJob(job) {
     const jobCont = document.createElement('div');
     jobCont.id = 'job-' + jobId;
 
     const jobDesc = document.createElement('span');
-    jobDesc.innerText = document.getElementById('todo-input').value;
+    jobDesc.innerText = job.title;
 
     jobCont.appendChild(jobDesc);
 
@@ -46,7 +55,6 @@ addBtn.onclick = () => {
 
     jobId++;
     todoList.appendChild(jobCont);
-
 }
 
 function destroyAllChildren(parent) {
@@ -87,6 +95,20 @@ function addHandlers() {
         }
 
     }
+
+    document.getElementById('fetch-jobs').onclick = () => {
+        console.log("Fetching Jobs");
+        fetch(resourceUrl)
+            .then(response => response.json())
+            .then(json => processJSON(json))
+    }
+}
+
+function processJSON(json) {
+    console.log(json);
+    //add a single element
+
+    addJob(json[0]);
 }
 
 function main() {
