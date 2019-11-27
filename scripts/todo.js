@@ -109,6 +109,16 @@ function processJSON(json) {
     //add a single element
 
     addJob(json[0]);
+
+    //add all
+    for (let i = 0; i < json.length; i++) {
+        addJob(json[i]);
+    }
+
+    //new syntax for looping through all elements in a collection(array here)
+    // for (let job of json) {
+    //     addJob(job);
+    // }
 }
 
 function main() {
