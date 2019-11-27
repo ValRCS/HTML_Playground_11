@@ -11,12 +11,16 @@ let jobId = 0;
 addBtn.onclick = () => {
     console.log("You Clicked ADD");
     //so I pass an object with a single property desc and the value of our input
-    addJob({ title: document.getElementById('todo-input').value });
+    addJob({
+        title: document.getElementById('todo-input').value,
+        id: jobId
+    });
+    jobId++;
 }
 
 function addJob(job) {
     const jobCont = document.createElement('div');
-    jobCont.id = 'job-' + jobId;
+    jobCont.id = 'job-' + job.id;
 
     const jobDesc = document.createElement('span');
     jobDesc.innerText = job.title;
@@ -24,8 +28,8 @@ function addJob(job) {
     jobCont.appendChild(jobDesc);
 
     const delBut = document.createElement('button');
-    delBut.innerText = "Delete Job No." + jobId;
-    delBut.value = jobId;
+    delBut.innerText = "Delete Job No." + job.id;
+    delBut.value = job.id;
     jobCont.appendChild(delBut);
     delBut.onclick = (event) => {
         console.log("I want to delete job no:" + event.target.parentNode.id);
@@ -53,7 +57,7 @@ function addJob(job) {
     jobCont.appendChild(jobDone);
 
 
-    jobId++;
+
     todoList.appendChild(jobCont);
 }
 
@@ -102,16 +106,25 @@ function addHandlers() {
             .then(response => response.json())
             .then(json => processJSON(json))
     }
+
+    document.getElementById('startRange').onchange = (ev) => {
+        document.getElementById('startDisp').value = ev.target.value;
+    }
+    document.getElementById('endRange').onchange = (ev) => {
+        document.getElementById('endDisp').value = ev.target.value;
+    }
 }
 
 function processJSON(json) {
     console.log(json);
     //add a single element
 
-    addJob(json[0]);
+    // addJob(json[0]);
 
     //add all
-    for (let i = 0; i < json.length; i++) {
+    const start = document.getElementById('startRange').value;
+    const end = document.getElementById('endRange').value;
+    for (let i = start; i < end; i++) {
         addJob(json[i]);
     }
 
