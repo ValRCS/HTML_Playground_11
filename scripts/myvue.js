@@ -1,5 +1,19 @@
 console.log("Running my own Vue!");
 
+// Define a new component called button-counter
+Vue.component('button-counter', {
+    data: function () {
+        return {
+            count: 0
+        }
+    },
+    template: '<div class="btn"><button v-on:click="count++">You clicked me {{ count }} times.</button></div>'
+})
+
+Vue.component('blog-post', {
+    props: ['mytitle', 'secondprop'],
+    template: '<h3>{{ mytitle }} and I like {{ secondprop }}</h3>'
+})
 
 const app = new Vue({
     el: '#app',
@@ -13,6 +27,11 @@ const app = new Vue({
             { text: 'Learn JavaScript' },
             { text: 'Learn Vue' },
             { text: 'Build something awesome' }
+        ],
+        posts: [
+            { id: 1, title: 'My journey with Vue', likes: "Chocolate" },
+            { id: 2, title: 'Blogging with Vue', likes: "Milk" },
+            { id: 3, title: 'Why Vue is so fun', likes: 'Milupa' }
         ]
     },
     methods: {

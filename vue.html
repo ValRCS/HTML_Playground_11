@@ -15,6 +15,10 @@
     <main>
         <div class="" id="app">
             {{ message }}
+            <blog-post mytitle="Labrīt!" v-bind:secondprop="second"></blog-post>
+            <hr>
+            <blog-post v-for="post in posts" v-bind:key="post.id" v-bind:mytitle="post.title"
+                v-bind:secondprop="post.likes"></blog-post>
             <p>
                 Lorem {{ second + message }}
             </p>
@@ -40,6 +44,10 @@
 
             <hr>
             <input v-model="message">
+            <hr>
+            <button-counter></button-counter>
+            <button-counter></button-counter>
+            <button-counter></button-counter>
         </div>
         <article>
 
