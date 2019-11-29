@@ -16,14 +16,43 @@
         <div class="" id="app">
             {{ message }}
             <p>
-                Lorem {{ secondmessage }}
+                Lorem {{ second + message }}
             </p>
+            message: {{ `${message} and more text ${secondmessage}`  }}
+            <hr>
+            <span v-bind:title="message">
+                Hover your mouse over me for a few seconds
+                to see my dynamically bound title!
+            </span>
+            <input type="text" v-bind:value="secondmessage">
+            <hr>
+            <button v-on:click="toggleSeen">{{ seenMsg }}</button>
+            <span v-if="seen">Now you see me</span>
+            <hr>
+            <ol>
+                <li v-for="todo in todos">
+                    {{ todo.text }}
+                </li>
+            </ol>
+            <hr>
+            <button v-on:click="reverseMessage">Reverse Message</button>
+            <button v-on:keyup.enter="reverseMessage">Reverse Message</button>
+
+            <hr>
+            <input v-model="message">
         </div>
         <article>
 
         </article>
     </main>
-
+    <hr>
+    <div class="" id="app2">
+        <ol>
+            <li v-for="todo in todos">
+                {{ todo.text }}
+            </li>
+        </ol>
+    </div>
 </body>
 
 </html>
